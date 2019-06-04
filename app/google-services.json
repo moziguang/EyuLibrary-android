@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "768393243734",
+    "firebase_url": "https://piano-test-5795b.firebaseio.com",
+    "project_id": "piano-test-5795b",
+    "storage_bucket": "piano-test-5795b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768393243734:android:d15140c0b571d050",
+        "android_client_info": {
+          "package_name": "com.eyu.piano.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768393243734-kbti2olh1u0v742hak9kr462dvcclhel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfm9UQb9LQbh6-KiUhhTXcF2E3RBbVmOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768393243734-kbti2olh1u0v742hak9kr462dvcclhel.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "768393243734-reo6p0nqb9ranhmbmqilgkfm9o9mi0gh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eyu.pianodream"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768393243734:android:9d8faa5c0379ef9e",
+        "android_client_info": {
+          "package_name": "com.eyu.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768393243734-kbti2olh1u0v742hak9kr462dvcclhel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfm9UQb9LQbh6-KiUhhTXcF2E3RBbVmOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768393243734-kbti2olh1u0v742hak9kr462dvcclhel.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "768393243734-reo6p0nqb9ranhmbmqilgkfm9o9mi0gh.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.eyu.pianodream"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
