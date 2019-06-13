@@ -186,7 +186,8 @@ https://developer.android.com/studio/build/multidex
         adConfig.setMaxTryLoadInterstitialAd(2);
 
         EyuAdManager.getInstance().config(this, adConfig, this);
-    }    
+    }
+
 8.添加权限
 <!--必须要有的权限-->
 <uses-permission android:name="android.permission.INTERNET" />
