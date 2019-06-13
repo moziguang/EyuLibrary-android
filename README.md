@@ -189,7 +189,7 @@ https://developer.android.com/studio/build/multidex
     }
 
 8.添加权限
-<!--必须要有的权限-->
+//必须要有的权限
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -198,7 +198,7 @@ https://developer.android.com/studio/build/multidex
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 <uses-permission android:name="android.permission.GET_TASKS"/>
-<!--最好能提供的权限-->
+//最好能提供的权限
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 9. 适配Anroid7.0
@@ -222,7 +222,7 @@ http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8
 <?xml version="1.0" encoding="utf-8"?>  
 <paths xmlns:android="http://schemas.android.com/apk/res/android">  
      <external-files-path name="external_files_path" path="Download" />  
-    <!--为了适配所有路径可以设置 path = "." -->  
+    //为了适配所有路径可以设置 path = "."
 </paths>
 
 10.代码混淆
