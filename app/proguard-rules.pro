@@ -24,9 +24,10 @@
 -keep class com.umeng.** {*;}
 
 #bytedance
--keep class com.bytedance.sdk.openadsdk.** {*;}
+-keep class com.bytedance.sdk.openadsdk.** { *; }
 -keep class com.androidquery.callback.** {*;}
--keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
+-keep class com.bytedance.sdk.openadsdk.service.TTDownloadProvider
+
 
 #gdt action
 -dontwarn com.qq.gdt.action.**

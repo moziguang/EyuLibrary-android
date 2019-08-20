@@ -5,16 +5,7 @@ buildscript {
     ...
     repositories {
         ...
-        maven { url 'https://maven.google.com' }
-        maven { url 'https://maven.fabric.io/public' }
         maven { url 'https://dl.bintray.com/umsdk/release' }
-        ...
-    }
-    ...
-    dependencies {
-        ...
-        classpath 'com.google.gms:google-services:4.2.0'
-        classpath 'io.fabric.tools:gradle:1.26.1'
         ...
     }
     ...
@@ -36,26 +27,19 @@ allprojects {
 }
 
 2.module的build.gradle 添加以下内容
-国内版本-只包含穿山甲
-...
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'io.fabric'
 ...
 dependencies {
     ...
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary-ch:1.2.11'
+    implementation 'com.eyu:eyulibrary-tt-mtg-gdt:1.0.1'
     ...
 }
 ...
 
-
-3.从firebase控制台下载 google-services.json ，并复制到module根目录下
-
-4.配置multiDexEnabled
+3.配置multiDexEnabled
 https://developer.android.com/studio/build/multidex
 
-5.初始化sdk
+4.初始化sdk
         SdkHelper.init(this);
         SdkHelper.initUmSdk(this, "appKey", "channel");
         SdkHelper.initAppFlyerSdk("key", new AppsFlyerConversionListener(){
@@ -80,10 +64,6 @@ https://developer.android.com/studio/build/multidex
 
             }
         }, this.getApplication(), "uninstallKey");
-        SdkHelper.initGdtActionSdk(this.getBaseContext(), "userActionSetID", "appSecretKey");
-        Map<String, Object> defaultsMap = new HashMap<>();
-        defaultsMap.put("test", "test value");
-        SdkHelper.initRemoteConfig(this, defaultsMap);
         String[] permissions = {Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
         SdkHelper.reqPermissions(this, permissions, "The application needs to read the device status");
 
@@ -139,11 +119,6 @@ https://developer.android.com/studio/build/multidex
                 "  }\n" +
                 "]");
         /**广告key配置，从广告平台获取，
-         *     NETWORK_FACEBOOK = "facebook";
-         *     NETWORK_ADMOB = "admob";
-         *     NETWORK_UNITY = "unity";
-         *     NETWORK_VUNGLE = "vungle";
-         *     NETWORK_APPLOVIN = "applovin";
          *     NETWORK_WM = "wm";
          *     NETWORK_GDT = "gdt";
          *     NETWORK_MINTEGRAL = "mintegral";
@@ -188,8 +163,7 @@ https://developer.android.com/studio/build/multidex
         adConfig.setMaxTryLoadRewardAd(2);
         adConfig.setMaxTryLoadNativeAd(2);
         adConfig.setMaxTryLoadInterstitialAd(2);
-        adConfig.setMintegralAppId("XXXXXX");
-        adConfig.setMintegralAppKey("XXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+
         EyuAdManager.getInstance().config(this, adConfig, this);
     }
 
@@ -240,9 +214,17 @@ http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8
 -keep class com.androidquery.callback.** {*;}
 -keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
 
-#gdt action
--dontwarn com.qq.gdt.action.**
--keep class com.qq.gdt.action.** {*;}
+
+# Mintegral
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class com.mintegral.** {*; }
+-keep interface com.mintegral.** {*; }
+-keep class android.support.v4.** { *; }
+-dontwarn com.mintegral.**
+-keep class **.R$* { public static final int mintegral*; }
+-keep class com.alphab.** {*; }
+-keep interface com.alphab.** {*; }
 
 #AppsFlyer
 -dontwarn com.appsflyer.**
@@ -262,4 +244,17 @@ EyuAdManager.getInstance().showRewardedVideoAd(MainActivity.this, "reward_ad");
 13.展示插屏广告
 EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "inter_ad");
 
-#国内聚合版本（穿山甲，mtg及广点通）接入请参考https://github.com/moziguang/EyuLibrary-android/blob/master/国内聚合版_README.md
+14.适配android 9.0
+<application
+        ...
+       android:networkSecurityConfig="@xml/network_security_config"
+        ...>
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        ...
+</application>
+
+15.MTG activity 声明
+<activity
+            android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />

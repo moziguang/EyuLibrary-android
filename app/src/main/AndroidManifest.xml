@@ -17,6 +17,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--&lt;!&ndash;bytedance start &ndash;&gt;-->
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="${applicationId}.fileprovider"-->
+            <!--android:exported="false"-->
+            <!--android:grantUriPermissions="true">-->
+            <!--<meta-data-->
+                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@xml/file_paths" />-->
+        <!--</provider>-->
+        <!--<provider-->
+            <!--android:name="com.bytedance.sdk.openadsdk.service.TTDownloadProvider"-->
+            <!--android:authorities="${applicationId}.union_adsdk_tt"-->
+            <!--android:exported="false"-->
+        <!--</provider>-->
+        <!--bytedance end -->
+
+
     </application>
 
 </manifest>
