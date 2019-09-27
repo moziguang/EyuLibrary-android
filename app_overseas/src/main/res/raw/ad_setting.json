@@ -1,0 +1,37 @@
+[
+  {
+    "cacheGroup": "reward_ad",
+    "isEnabled": "true",
+    "nativeAdLayout": "native_ad_inside",
+    "id": "reward_ad",
+    "desc": "激励视频"
+  },
+  {
+    "cacheGroup": "main_view_native_ad",
+    "isEnabled": "true",
+    "nativeAdLayout": "native_ad_mainview",
+    "id": "main_view_native_ad",
+    "desc": "首页原生广告"
+  },
+  {
+    "cacheGroup": "page_view_native_ad",
+    "isEnabled": "true",
+    "nativeAdLayout": "native_ad_in_page",
+    "id": "page_view_native_ad",
+    "desc": "页面原生广告"
+  },
+  {
+    "cacheGroup": "main_view_inter_ad",
+    "isEnabled": "true",
+    "nativeAdLayout": "",
+    "id": "main_view_inter_ad",
+    "desc": "首页插屏"
+  },
+  {
+    "cacheGroup": "page_view_banner_ad",
+    "isEnabled": "true",
+    "nativeAdLayout": "banner_ad_in_page",
+    "id": "page_view_banner_ad",
+    "desc": "页面banner广告"
+  }
+]

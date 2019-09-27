@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "133111924859",
+    "firebase_url": "https://muslim-59af5.firebaseio.com",
+    "project_id": "muslim-59af5",
+    "storage_bucket": "muslim-59af5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133111924859:android:94bdaa6fd41421ab",
+        "android_client_info": {
+          "package_name": "com.islam.muslim.qibla"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133111924859-evi0ns9olkajoa93t28i8gttnqhokflg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.islam.muslim.qibla",
+            "certificate_hash": "4f7a0b8e5a0980a021dd275ec39d0bd7f91c7e40"
+          }
+        },
+        {
+          "client_id": "133111924859-an2kgclabr7ogg3depcojnaeeftndhta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB95r23rRz5KVHC-WpIu7wofHjkKwsREVw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133111924859-an2kgclabr7ogg3depcojnaeeftndhta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
