@@ -33,6 +33,7 @@ allprojects {
                 password 'wKY0RHNSH3'
             }
         }
+        maven { url "https://jitpack.io" }//vungle
     }
 }
 

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/native_ad_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_top">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.817" />
+
+        <ImageView
+            android:id="@+id/native_ad_ad_ico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0dp"
+            android:paddingRight="2dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/native_ad_media_layout"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/native_ad_media_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/guideline_middle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/native_ad_icon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            app:layout_goneMarginBottom="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_middle" />
+
+        <TextView
+            android:id="@+id/native_ad_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            tools:text="BALL VS BLOCK"
+            android:textSize="17dp"
+            app:layout_constraintLeft_toRightOf="@+id/native_ad_icon"
+            app:layout_constraintRight_toLeftOf="@+id/native_ad_call_btn"
+            app:layout_constraintTop_toTopOf="@+id/guideline_middle" />
+
+        <TextView
+            android:id="@+id/native_ad_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:ellipsize="marquee"
+            android:lineSpacingExtra="0dp"
+            android:singleLine="true"
+            tools:text="When Gluttonous Snake meets Break the Brick"
+            android:textColor="#ffc207"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="@+id/native_ad_icon"
+            app:layout_constraintLeft_toRightOf="@+id/native_ad_icon"
+            app:layout_constraintRight_toLeftOf="@+id/native_ad_call_btn"
+            app:layout_constraintTop_toBottomOf="@+id/native_ad_title" />
+
+        <Button
+            android:id="@+id/native_ad_call_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            tools:text="Install"
+            android:textColor="#fff"
+            android:textSize="12dp"
+            android:background="@drawable/install_01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="164:60"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintRight_toRightOf="@+id/native_ad_media_layout"
+            app:layout_constraintTop_toTopOf="@+id/guideline_middle" />
+
+        <ImageView
+            android:id="@+id/native_ad_close_btn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:paddingRight="2dp"
+            android:paddingTop="2dp"
+            android:scaleType="center"
+            android:src="@drawable/guanggaoguanbi02"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/native_ad_choices_framelayout"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/banner_native_ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/yuanshengguanggao_dikuang"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/banner_native_ad_icon"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/banner_native_ad_btn"
+            android:layout_width="78dp"
+            android:layout_height="30dp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/install_01"
+            tools:text="Install"
+            android:textColor="#FFFFFF"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/banner_native_ad_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            tools:text="BALL VS BLOCK!!!!!!!!!!!!!!!!!!!!!!!"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            app:layout_constraintLeft_toRightOf="@+id/banner_native_ad_icon"
+            app:layout_constraintRight_toLeftOf="@+id/banner_native_ad_btn" />
+
+        <TextView
+            android:id="@+id/banner_native_ad_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            android:ellipsize="marquee"
+            android:lineSpacingExtra="0dp"
+            android:singleLine="true"
+            tools:text="When Gluttonous Snake meets Break the Brick"
+            android:textColor="#ffc207"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/banner_native_ad_icon"
+            app:layout_constraintRight_toLeftOf="@+id/banner_native_ad_btn"
+            app:layout_constraintTop_toBottomOf="@+id/banner_native_ad_title" />
+
+
+        <ImageView
+            android:id="@+id/banner_close_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="-1dp"
+            android:layout_marginTop="-1dp"
+            android:scaleType="center"
+            android:src="@drawable/guanggaoguanbi"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/banner_native_ad_choices_layout"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_dialog_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.076" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_dialog_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.924" />
+
+</android.support.constraint.ConstraintLayout>

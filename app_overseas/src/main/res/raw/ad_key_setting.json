@@ -1,0 +1,11 @@
+[
+{"id":"fb_cp_g","key":"347717962439620_352665025278247","network":"facebook"},
+{"id":"fb_jl_gg","key":"347717962439620_352665468611536","network":"facebook"},
+{"id":"fb_ys_a","key":"347717962439620_352661878611895","network":"facebook"},
+  {"id":"fb_ba_a","key":"347717962439620_352665608611522","network":"facebook"},
+
+{"id":"adcp_js","key":"ca-app-pub-3940256099942544/1033173712","network":"admob","testKey":"ca-app-pub-3940256099942544/1033173712"},
+{"id":"adjl_jsg","key":"ca-app-pub-3940256099942544/5224354917","network":"admob","testKey":"ca-app-pub-3940256099942544/5224354917"},
+{"id":"adys_sy","key":"ca-app-pub-3940256099942544/2247696110","network":"admob","testKey":"ca-app-pub-3940256099942544/2247696110"},
+  {"id":"adys_ba","key":"ca-app-pub-3940256099942544/6300978111","network":"admob","testKey":"ca-app-pub-3940256099942544/6300978111"}
+]

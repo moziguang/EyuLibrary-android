@@ -1,0 +1,32 @@
+[
+  {
+    "keys": "[\"fb_ys_a\",\"adys_sy\"]",
+    "isAutoLoad": "true",
+    "id": "main_view_native_ad",
+    "type": "nativeAd"
+  },
+  {
+    "keys": "[\"fb_ys_a\",\"adys_sy\"]",
+    "isAutoLoad": "true",
+    "id": "page_view_native_ad",
+    "type": "nativeAd"
+  },
+  {
+    "keys": "[\"fb_jl_gg\",\"adjl_jsg\"]",
+    "isAutoLoad": "false",
+    "id": "reward_ad",
+    "type": "rewardAd"
+  },
+  {
+    "keys": "[\"fb_cp_g\"]",
+    "isAutoLoad": "true",
+    "id": "main_view_inter_ad",
+    "type": "interstitialAd"
+  },
+  {
+    "keys": "[\"fb_ba_a\",\"adys_ba\"]",
+    "isAutoLoad": "true",
+    "id": "page_view_banner_ad",
+    "type": "bannerAd"
+  }
+]
