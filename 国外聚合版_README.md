@@ -41,7 +41,7 @@ apply plugin: 'io.fabric'
 dependencies {
  
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary:1.3.02'
+    implementation 'com.eyu:eyulibrary:1.3.06'
 
 }
 ```
@@ -103,6 +103,15 @@ EyuRemoteConfigHelper.fetchRemoteConfig();
          *     "desc": "首页插屏"
          *   }
          */
+
+        public static String NETWORK_FACEBOOK = "facebook";
+        public static String NETWORK_ADMOB = "admob";
+        public static String NETWORK_UNITY = "unity";
+        public static String NETWORK_VUNGLE = "vungle";
+        public static String NETWORK_APPLOVIN = "applovin";
+        public static String NETWORK_IRONSOURCE = "ironsource";
+        public static String NETWORK_MINTEGRAL = "mintegral";
+
         adConfig.setAdPlaceConfigStr(EyuRemoteConfigHelper.readRawString(this, R.raw.ad_setting));
         /**
          * 广告key配置
@@ -277,6 +286,81 @@ android:value="@string/facebook_app_id" />
 ### 代码混淆
 如果您需要使用proguard混淆代码，需确保不要混淆SDK的代码。 请在proguard.cfg文件(或其他混淆文件)尾部添加如下配置:
 ```
+#ironsource
+-keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface {
+    public *;
+}
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keep class com.ironsource.adapters.** { *;
+}
+-dontwarn com.ironsource.mediationsdk.**
+-dontwarn com.ironsource.adapters.**
+-dontwarn com.moat.**
+-keep class com.moat.** { public protected private *; }
+
+# UnityAds adapter
+# Keep filenames and line numbers for stack traces
+-keepattributes SourceFile,LineNumberTable
+# Keep JavascriptInterface for WebView bridge
+-keepattributes JavascriptInterface
+# Sometimes keepattributes is not enough to keep annotations
+-keep class android.webkit.JavascriptInterface {
+   *;
+}
+# Keep all classes in Unity Ads package
+-keep class com.unity3d.ads.** {
+   *;
+}
+# Keep all classes in Unity Services package
+-keep class com.unity3d.services.** {
+   *;
+}
+-dontwarn com.google.ar.core.**
+-dontwarn com.unity3d.services.**
+-dontwarn com.ironsource.adapters.unityads.**
+
+#applovin
+-keepattributes Signature,InnerClasses,Exceptions,Annotation
+-keep public class com.applovin.sdk.AppLovinSdk{ *; }
+-keep public class com.applovin.sdk.AppLovin* { public protected *; }
+-keep public class com.applovin.nativeAds.AppLovin* { public protected *; }
+-keep public class com.applovin.adview.* { public protected *; }
+-keep public class com.applovin.mediation.* { public protected *; }
+-keep public class com.applovin.mediation.ads.* { public protected *; }
+-keep public class com.applovin.impl.*.AppLovin { public protected *; }
+-keep public class com.applovin.impl.**.*Impl { public protected *; }
+-keepclassmembers class com.applovin.sdk.AppLovinSdkSettings { private java.util.Map localSettings; }
+-keep class com.applovin.mediation.adapters.** { *; }
+-keep class com.applovin.mediation.adapter.**{ *; }
+
+# Vungle
+-keep class com.vungle.warren.** { *; }
+-dontwarn com.vungle.warren.error.VungleError$ErrorCode
+# Moat SDK
+-keep class com.moat.** { *; }
+-dontwarn com.moat.**
+# Okio
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
+# Retrofit
+-dontwarn okio.**
+-dontwarn retrofit2.Platform$Java8
+# Gson
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+# Google Android Advertising ID
+-keep class com.google.android.gms.internal.** { *; }
+-dontwarn com.google.android.gms.ads.identifier.**
+
 #AppsFlyer
 -dontwarn com.appsflyer.**
 -keep public class com.google.firebase.iid.FirebaseInstanceId {
