@@ -177,6 +177,16 @@ public class MainActivity extends AppCompatActivity {
             public void onDefaultNativeAdClicked() {
 
             }
+
+            @Override
+            public void onAdLoadFailed(String placeId, String key, int code) {
+
+            }
+
+            @Override
+            public void onImpression(String type, String placeId) {
+
+            }
         });
     }
 
