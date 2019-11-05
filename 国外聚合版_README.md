@@ -28,7 +28,8 @@ allprojects {
             }
         }
         maven { url 'https://dl.bintray.com/umsdk/release' }
- 
+        maven { url "https://jitpack.io" }//vungle
+
     }
 }
 ```
@@ -41,7 +42,7 @@ apply plugin: 'io.fabric'
 dependencies {
  
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary:1.3.06'
+    implementation 'com.eyu:eyulibrary:1.3.09'
 
 }
 ```
