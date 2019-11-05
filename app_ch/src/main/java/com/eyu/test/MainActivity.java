@@ -10,7 +10,6 @@ import com.eyu.common.SdkHelper;
 import com.eyu.common.ad.EyuAdManager;
 import com.eyu.common.ad.EyuAdsListener;
 import com.eyu.common.ad.model.AdConfig;
-import com.eyu.common.firebase.EyuRemoteConfigHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -185,6 +184,16 @@ public class MainActivity extends AppCompatActivity implements EyuAdsListener {
 
     @Override
     public void onDefaultNativeAdClicked() {
+
+    }
+
+    @Override
+    public void onAdLoadFailed(String placeId, String key, int code) {
+
+    }
+
+    @Override
+    public void onImpression(String type, String placeId) {
 
     }
 }

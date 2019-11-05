@@ -31,7 +31,7 @@ allprojects {
 dependencies {
     ...
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary-tt-mtg-gdt:1.0.5'
+    implementation 'com.eyu:eyulibrary-tt-mtg-gdt:1.0.6'
     ...
 }
 ...
@@ -69,34 +69,43 @@ https://developer.android.com/studio/build/multidex
 
 6.实现广告回调EyuAdsListener
     @Override
-    public void onAdReward(String type, String placeId) {
+                public void onAdReward(String type, String placeId) {
 
-    }
+                }
 
-    @Override
-    public void onAdLoaded(String type, String placeId) {
+                @Override
+                public void onAdLoaded(String type, String placeId) {
 
-    }
+                }
 
-    @Override
-    public void onAdShowed(String type, String placeId) {
+                @Override
+                public void onAdShowed(String type, String placeId) {
+                }
 
-    }
+                @Override
+                public void onAdClosed(String type, String placeId) {
 
-    @Override
-    public void onAdClosed(String type, String placeId) {
+                }
 
-    }
+                @Override
+                public void onAdClicked(String type, String placeId) {
 
-    @Override
-    public void onAdClicked(String type, String placeId) {
+                }
 
-    }
+                @Override
+                public void onDefaultNativeAdClicked() {
 
-    @Override
-    public void onDefaultNativeAdClicked() {
+                }
 
-    }
+                @Override
+                public void onAdLoadFailed(String placeId, String key, int code) {
+
+                }
+
+                @Override
+                public void onImpression(String type, String placeId) {
+
+                }
 7.初始化广告
     private void initAdConfig() {
         AdConfig adConfig = new AdConfig();
