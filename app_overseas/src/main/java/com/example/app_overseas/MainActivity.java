@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
          *     "desc": "首页插屏"
          *   }
          */
-        adConfig.setAdPlaceConfigStr(EyuRemoteConfigHelper.readRawString(this, R.raw.ad_setting));
+        adConfig.setAdPlaceConfigStr(SdkHelper.readRawString(this, R.raw.ad_setting));
         /**
          * 广告key配置
          * [
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
          * {"id":"adys_ba","key":"ca-app-pub-3940256099942544/6300978111","network":"admob"}
          * ]
          */
-        adConfig.setAdKeyConfigStr(EyuRemoteConfigHelper.readRawString(this, R.raw.ad_key_setting));
+        adConfig.setAdKeyConfigStr(SdkHelper.readRawString(this, R.raw.ad_key_setting));
 
         /**
          * 广告位中广告的缓存池，id与广告位id对应
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
          *     "type": "interstitialAd"
          *   }
          */
-        adConfig.setAdGroupConfigStr(EyuRemoteConfigHelper.readRawString(this, R.raw.ad_cache_setting));
+        adConfig.setAdGroupConfigStr(SdkHelper.readRawString(this, R.raw.ad_cache_setting));
         adConfig.setAdmobClientId("");
         adConfig.setUnityClientId("");
         adConfig.setVungleClientId("");
