@@ -30,8 +30,9 @@ allprojects {
 ...
 dependencies {
     ...
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary-ch:1.2.13'
+    implementation 'com.eyu:eyulibrary-ch:1.2.15'
     ...
 }
 ...
@@ -41,31 +42,15 @@ https://developer.android.com/studio/build/multidex
 
 4.初始化sdk
         SdkHelper.init(this);
+        SdkHelper.initTracking(this, "yourAppKey" );
         SdkHelper.initUmSdk(this, "appKey", "channel");
-        SdkHelper.initAppFlyerSdk("key", new AppsFlyerConversionListener(){
 
-            @Override
-            public void onInstallConversionDataLoaded(Map<String, String> map) {
 
-            }
-
-            @Override
-            public void onInstallConversionFailure(String s) {
-
-            }
-
-            @Override
-            public void onAppOpenAttribution(Map<String, String> map) {
-
-            }
-
-            @Override
-            public void onAttributionFailure(String s) {
-
-            }
-        }, this.getApplication(), "uninstallKey");
-        String[] permissions = {Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
-        SdkHelper.reqPermissions(this, permissions, "The application needs to read the device status");
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        SdkHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 
 6.实现广告回调EyuAdsListener
     @Override
@@ -180,12 +165,14 @@ https://developer.android.com/studio/build/multidex
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 <uses-permission android:name="android.permission.GET_TASKS"/>
 //最好能提供的权限
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 9. 适配Anroid7.0
 http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8D%E7%BD%AE
@@ -221,17 +208,17 @@ http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8
 -keep class com.androidquery.callback.** {*;}
 -keep public interface com.bytedance.sdk.openadsdk.downloadnew.** {*;}
 
-#AppsFlyer
--dontwarn com.appsflyer.**
--keep public class com.google.firebase.iid.FirebaseInstanceId {
-    public *;
-}
-
 #eyu
 -keep class com.eyu.common.**{*;}
 
-11.配置appsflyer
-https://support.appsflyer.com/hc/zh-cn/articles/207032126-AppsFlyer-SDK-%E5%AF%B9%E6%8E%A5-Android
+##热云
+-dontwarn org.bouncycastle.**
+-keep class org.bouncycastle.** {*;}
+-dontwarn com.bun.miitmdid.**
+-keep class com.bun.miitmdid.** {*;}
+-dontwarn com.reyun.tracking.**
+-keep class com.reyun.tracking.** {*;}
+
 
 12.展示激励视频
 EyuAdManager.getInstance().showRewardedVideoAd(MainActivity.this, "reward_ad");

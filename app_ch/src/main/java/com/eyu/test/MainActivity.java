@@ -1,18 +1,14 @@
 package com.eyu.test;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.appsflyer.AppsFlyer2dXConversionCallback;
-import com.appsflyer.AppsFlyerConversionListener;
 import com.eyu.common.SdkHelper;
 import com.eyu.common.ad.EyuAdManager;
 import com.eyu.common.ad.EyuAdsListener;
 import com.eyu.common.ad.model.AdConfig;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements EyuAdsListener {
 
@@ -21,31 +17,8 @@ public class MainActivity extends AppCompatActivity implements EyuAdsListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SdkHelper.init(this);
+        SdkHelper.initTracking(this, "yourAppKey");
         SdkHelper.initUmSdk(this, "appKey", "channel");
-        SdkHelper.initAppFlyerSdk("key", new AppsFlyerConversionListener(){
-
-            @Override
-            public void onInstallConversionDataLoaded(Map<String, String> map) {
-
-            }
-
-            @Override
-            public void onInstallConversionFailure(String s) {
-
-            }
-
-            @Override
-            public void onAppOpenAttribution(Map<String, String> map) {
-
-            }
-
-            @Override
-            public void onAttributionFailure(String s) {
-
-            }
-        }, this.getApplication(), "uninstallKey");
-        Map<String, Object> defaultsMap = new HashMap<>();
-        defaultsMap.put("test", "test value");
 
         initAdConfig();
 
@@ -195,5 +168,11 @@ public class MainActivity extends AppCompatActivity implements EyuAdsListener {
     @Override
     public void onImpression(String type, String placeId) {
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        SdkHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

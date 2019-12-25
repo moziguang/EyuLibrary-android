@@ -42,7 +42,7 @@ apply plugin: 'io.fabric'
 dependencies {
  
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary:1.3.09'
+    implementation 'com.eyu:eyulibrary:1.3.13'
 
 }
 ```
