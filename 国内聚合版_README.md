@@ -1,6 +1,6 @@
-https://github.com/moziguang/EyuLibrary-android.git
 
-1.项目的build.gradle 添加以下内容
+### 1.项目的build.gradle 添加以下内容
+```gradle
 buildscript {
     ...
     repositories {
@@ -25,8 +25,9 @@ allprojects {
         ...
     }
 }
-
-2.module的build.gradle 添加以下内容
+```
+### 2.module的build.gradle 添加以下内容
+```gradle
 ...
 dependencies {
     ...
@@ -35,12 +36,13 @@ dependencies {
     implementation 'com.eyu:eyulibrary-tt-mtg-gdt:1.0.11'
     ...
 }
-...
+```
 
-3.配置multiDexEnabled
+### 3.配置multiDexEnabled
 https://developer.android.com/studio/build/multidex
 
-4.初始化sdk
+### 4.初始化sdk
+```java
         SdkHelper.init(this);
         SdkHelper.initTracking(this, "yourAppKey" );
         SdkHelper.initUmSdk(this, "appKey", "channel");
@@ -50,7 +52,9 @@ https://developer.android.com/studio/build/multidex
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         SdkHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-6.实现广告回调EyuAdsListener
+```
+### 6.实现广告回调EyuAdsListener
+```java
     @Override
                 public void onAdReward(String type, String placeId) {
 
@@ -89,7 +93,9 @@ https://developer.android.com/studio/build/multidex
                 public void onImpression(String type, String placeId) {
 
                 }
-7.初始化广告
+```
+### 7.初始化广告
+```java
     private void initAdConfig() {
         AdConfig adConfig = new AdConfig();
 
@@ -158,8 +164,9 @@ https://developer.android.com/studio/build/multidex
 
         EyuAdManager.getInstance().config(this, adConfig, this);
     }
-
-8.添加权限
+```
+### 8.添加权限
+```xml
 //必须要有的权限
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -173,9 +180,10 @@ https://developer.android.com/studio/build/multidex
 //最好能提供的权限
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+```
 
-
-9. 适配Anroid7.0
+### 9. 适配Anroid7.0
+```txt
 http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8D%E7%BD%AE
 如果您的应用需要适配Anroid7.0以及8.0，请在AndroidManifest中添加如下代码：
 <provider
@@ -198,8 +206,9 @@ http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8
      <external-files-path name="external_files_path" path="Download" />  
     //为了适配所有路径可以设置 path = "."
 </paths>
-
-10.代码混淆
+```
+### 10.代码混淆
+```txt
 如果您需要使用proguard混淆代码，需确保不要混淆SDK的代码。 请在proguard.cfg文件(或其他混淆文件)尾部添加如下配置:
 #umeng
 -keep class com.umeng.** {*;}
@@ -238,13 +247,18 @@ http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8
 -dontwarn com.reyun.tracking.**
 -keep class com.reyun.tracking.** {*;}
 
-11.展示激励视频
+```
+
+### 11.展示激励视频
+```java
 EyuAdManager.getInstance().showRewardedVideoAd(MainActivity.this, "reward_ad");
-
-12.展示插屏广告
+```
+### 12.展示插屏广告
+```java
 EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "inter_ad");
-
-13.适配android 9.0
+```
+### 13.适配android 9.0
+```xml
 <application
         ...
        android:networkSecurityConfig="@xml/network_security_config"
@@ -252,9 +266,11 @@ EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "inter_ad");
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
         ...
 </application>
-
-14.MTG activity 声明
+```
+### 14.MTG activity 声明
+```xml
 <activity
             android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+```

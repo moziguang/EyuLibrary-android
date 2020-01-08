@@ -1,7 +1,7 @@
 [https://github.com/moziguang/EyuLibrary-android.git](https://github.com/moziguang/EyuLibrary-android.git)
-
-### 项目的build.gradle 添加以下内容
-```
+================
+### 项目的buld.gradle 添加以下内容
+```gradle
 buildscript {
 
     repositories {
@@ -35,18 +35,17 @@ allprojects {
 ```
 ### module的build.gradle 添加以下内容
 
-```
+```gradle
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'io.fabric'
 
 dependencies {
  
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary:1.3.13'
+    implementation 'com.eyu:eyulibrary:1.3.15'
 
 }
 ```
-
 
 ### 配置google-services.json
 从firebase控制台下载 google-services.json ，并复制到module根目录下
@@ -56,7 +55,7 @@ dependencies {
 
 ### SDK使用
 #### 初始化sdk
-```
+```java
 SdkHelper.init(this);
 SdkHelper.initUmSdk(this, "appKey", "channel");
 SdkHelper.initAppFlyerSdk("key", new AppsFlyerConversionListener(){
@@ -88,10 +87,10 @@ defaultsMap.put("key","defaultValue");
 EyuRemoteConfigHelper.initRemoteConfig(this, defaultsMap);
 EyuRemoteConfigHelper.fetchRemoteConfig();
 
+```
 
-```
 #### 广告配置
-```
+```java
     private void initAdConfig() {
         AdConfig adConfig = new AdConfig();
         /**
@@ -154,7 +153,7 @@ EyuRemoteConfigHelper.fetchRemoteConfig();
     
 ```
 #### 广告初始化
-```
+```java
 //这一步比较耗时
 EyuAdManager.getInstance().config(MainActivity.this, adConfig, new EyuAdsListener() {
     @Override
@@ -199,7 +198,7 @@ EyuAdManager.getInstance().config(MainActivity.this, adConfig, new EyuAdsListene
 ```
 
 #### 生命周期处理
-```
+```java
    Activity中添加
     
         @Override
@@ -225,7 +224,7 @@ EyuAdManager.getInstance().config(MainActivity.this, adConfig, new EyuAdsListene
     }
 ```
 #### 使用示例
-```
+```java
  //激励视频
 findViewById(R.id.btnVideoAd).setOnClickListener(new View.OnClickListener() {
     @Override
@@ -266,7 +265,7 @@ EyuAdManager.getInstance().showNativeAd(this, (ViewGroup) findViewById(R.id.rl_n
 
 #### 清单文件配置
 此配置可能随SDK的升级有所变动
-```
+```xml
 meta-data
 android:name="com.google.android.gms.ads.APPLICATION_ID"
 android:value="ca-app-pub-9624926763614741~6598275826" />
@@ -278,7 +277,7 @@ android:value="@string/facebook_app_id" />
 
 #### 添加权限
 //必须要有的权限
-```
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -289,14 +288,14 @@ android:value="@string/facebook_app_id" />
 <uses-permission android:name="android.permission.GET_TASKS"/>
 ```
 //最好能提供的权限
-```
+```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
 
 ### 代码混淆
 如果您需要使用proguard混淆代码，需确保不要混淆SDK的代码。 请在proguard.cfg文件(或其他混淆文件)尾部添加如下配置:
-```
+```txt
 #ironsource
 -keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface {
     public *;
@@ -314,7 +313,7 @@ android:value="@string/facebook_app_id" />
 -dontwarn com.moat.**
 -keep class com.moat.** { public protected private *; }
 
-# UnityAds adapter
+## UnityAds adapter
 # Keep filenames and line numbers for stack traces
 -keepattributes SourceFile,LineNumberTable
 # Keep JavascriptInterface for WebView bridge
