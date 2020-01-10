@@ -33,7 +33,7 @@ dependencies {
     ...
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary-ch:1.2.15'
+    implementation 'com.eyu:eyulibrary-ch:1.2.16'
     ...
 }
 ...
@@ -41,12 +41,36 @@ dependencies {
 ### 3.配置multiDexEnabled
 https://developer.android.com/studio/build/multidex
 
-### 4.初始化sdk
+### 4.初始化sdk 热云、友盟、及AF可以根据项目需要选择是否集成
 ```java
         SdkHelper.init(this);
+        //申请权限
+        String[] permissions = {Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
+        ActivityCompat.requestPermissions(this, permissions, SdkHelper.PERMISSIONS_REQ_CODE);
+        
         SdkHelper.initTracking(this, "yourAppKey" );
         SdkHelper.initUmSdk(this, "appKey", "channel");
+        SdkHelper.initAppFlyerSdk("afKey", new AppsFlyerConversionListener() {
+            @Override
+            public void onInstallConversionDataLoaded(Map<String, String> map) {
 
+            }
+
+            @Override
+            public void onInstallConversionFailure(String s) {
+
+            }
+
+            @Override
+            public void onAppOpenAttribution(Map<String, String> map) {
+
+            }
+
+            @Override
+            public void onAttributionFailure(String s) {
+
+            }
+        }, getApplication());
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -248,3 +272,6 @@ EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "inter_ad");
 ```
 ### 15.穿山甲文档
 https://ad.oceanengine.com/union/media/union/download/detail?id=3&type=1&docId=android-cn-2&osType=android
+
+### 16.AppsFlyer
+https://support.appsflyer.com/hc/zh-cn/articles/207032126-%E9%80%82%E7%94%A8%E4%BA%8E%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84Android-SDK%E9%9B%86%E6%88%90#%E7%AE%80%E4%BB%8B

@@ -1,14 +1,19 @@
 package com.eyu.test;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.appsflyer.AppsFlyerConversionListener;
 import com.eyu.common.SdkHelper;
 import com.eyu.common.ad.EyuAdManager;
 import com.eyu.common.ad.EyuAdsListener;
 import com.eyu.common.ad.model.AdConfig;
+
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements EyuAdsListener {
 
@@ -17,8 +22,31 @@ public class MainActivity extends AppCompatActivity implements EyuAdsListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         SdkHelper.init(this);
+        String[] permissions = {Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION};
+        ActivityCompat.requestPermissions(this, permissions, SdkHelper.PERMISSIONS_REQ_CODE);
         SdkHelper.initTracking(this, "yourAppKey");
         SdkHelper.initUmSdk(this, "appKey", "channel");
+        SdkHelper.initAppFlyerSdk("afKey", new AppsFlyerConversionListener() {
+            @Override
+            public void onInstallConversionDataLoaded(Map<String, String> map) {
+
+            }
+
+            @Override
+            public void onInstallConversionFailure(String s) {
+
+            }
+
+            @Override
+            public void onAppOpenAttribution(Map<String, String> map) {
+
+            }
+
+            @Override
+            public void onAttributionFailure(String s) {
+
+            }
+        }, getApplication());
 
         initAdConfig();
 
