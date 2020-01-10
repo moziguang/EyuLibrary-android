@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements EyuAdsListener {
                 "]");
 
         adConfig.setTtClientId("TtClientId");
+        adConfig.setAppName("test");
         adConfig.setMaxTryLoadRewardAd(2);
         adConfig.setMaxTryLoadNativeAd(2);
         adConfig.setMaxTryLoadInterstitialAd(2);

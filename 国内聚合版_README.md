@@ -183,6 +183,7 @@ https://developer.android.com/studio/build/multidex
                 "]");
 
         adConfig.setTtClientId("TtClientId");
+        adConfig.setAppName("test");
         adConfig.setMaxTryLoadRewardAd(2);
         adConfig.setMaxTryLoadNativeAd(2);
         adConfig.setMaxTryLoadInterstitialAd(2);
