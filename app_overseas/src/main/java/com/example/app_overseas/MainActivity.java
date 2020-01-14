@@ -141,9 +141,9 @@ public class MainActivity extends AppCompatActivity {
         adConfig.setUnityClientId("");
         adConfig.setVungleClientId("");
 //        adConfig.setTtClientId("5010560");
-        adConfig.setMaxTryLoadRewardAd(1);
-        adConfig.setMaxTryLoadNativeAd(1);
-        adConfig.setMaxTryLoadInterstitialAd(1);
+//        adConfig.setMaxTryLoadRewardAd(1);
+//        adConfig.setMaxTryLoadNativeAd(1);
+//        adConfig.setMaxTryLoadInterstitialAd(1);
         adConfig.setTestParams(TestParams.builder(true)
                 .addAdmobTestDevice(""));
         adConfig.setFbNativeAdClickAreaControl(true);

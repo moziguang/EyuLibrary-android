@@ -33,7 +33,7 @@ dependencies {
     ...
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary-ch:1.2.16'
+    implementation 'com.eyu:eyulibrary-ch:1.2.17'
     ...
 }
 ...
@@ -182,9 +182,6 @@ https://developer.android.com/studio/build/multidex
 
         adConfig.setTtClientId("TtClientId");
         adConfig.setAppName("test");
-        adConfig.setMaxTryLoadRewardAd(2);
-        adConfig.setMaxTryLoadNativeAd(2);
-        adConfig.setMaxTryLoadInterstitialAd(2);
 
         EyuAdManager.getInstance().config(this, adConfig, this);
     }

@@ -42,7 +42,7 @@ apply plugin: 'io.fabric'
 dependencies {
  
     implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary:1.3.15'
+    implementation 'com.eyu:eyulibrary:1.3.16'
 
 }
 ```
@@ -141,9 +141,6 @@ EyuRemoteConfigHelper.fetchRemoteConfig();
         adConfig.setUnityClientId("");
         adConfig.setVungleClientId("");
 //        adConfig.setTtClientId("5010560");
-        adConfig.setMaxTryLoadRewardAd(1);
-        adConfig.setMaxTryLoadNativeAd(1);
-        adConfig.setMaxTryLoadInterstitialAd(1);
         //设置Admob测试设备
         adConfig.setTestParams(TestParams.builder(true)
                 .addAdmobTestDevice(""));
