@@ -33,5 +33,11 @@
     "nativeAdLayout": "banner_ad_in_page",
     "id": "page_view_banner_ad",
     "desc": "页面banner广告"
-  }
+  },{
+  "isEnabled":"true",
+  "desc":"奖励插屏",
+  "id":"inter_reward_ad",
+  "nativeAdLayout":"",
+  "cacheGroup":"inter_reward_ad_group"
+}
 ]

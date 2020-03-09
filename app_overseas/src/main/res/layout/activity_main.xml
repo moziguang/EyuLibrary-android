@@ -1,43 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnVideoAd"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="视频广告"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnInterstitialAd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="插屏广告"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnVideoAd" />
-
-    <RelativeLayout
-        android:id="@+id/rl_native"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:background="#eee"
-        app:layout_constraintTop_toBottomOf="@+id/btnInterstitialAd" />
+        android:text="Ad Test"
+        />
 
     <LinearLayout
-        android:id="@+id/ll_banner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="4"
+        android:layout_weight="100">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btnLoadRewardAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load Reward Ad"
+                />
+            <Button
+                android:id="@+id/btnShowRewardAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Reward Ad"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btnLoadInterAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load Interstitial Ad"
+                />
+            <Button
+                android:id="@+id/btnShowInterAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Interstitial Ad"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btnLoadNativeAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load Native Ad"
+                />
+            <Button
+                android:id="@+id/btnShowNativeAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Native Ad"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btnLoadInterRewardAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load Reward Interstitial Ad"
+                />
+            <Button
+                android:id="@+id/btnShowInterRewardAd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Reward Interstitial Ad"
+                />
+        </LinearLayout>
+
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/nativeRoot"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@color/colorPrimary"
+        />
+
+</LinearLayout>

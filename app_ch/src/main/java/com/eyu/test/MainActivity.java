@@ -2,9 +2,6 @@ package com.eyu.test;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.appsflyer.AppsFlyerConversionListener;
@@ -14,6 +11,10 @@ import com.eyu.common.ad.EyuAdsListener;
 import com.eyu.common.ad.model.AdConfig;
 
 import java.util.Map;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity implements EyuAdsListener {
 

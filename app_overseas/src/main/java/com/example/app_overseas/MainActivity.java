@@ -1,24 +1,18 @@
 package com.example.app_overseas;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.appsflyer.AppsFlyerConversionListener;
 import com.eyu.common.SdkHelper;
 import com.eyu.common.ad.EyuAdManager;
 import com.eyu.common.ad.EyuAdsListener;
 import com.eyu.common.ad.model.AdConfig;
-import com.eyu.common.ad.model.TestParams;
-import com.eyu.common.firebase.EyuRemoteConfigHelper;
 
-import java.util.HashMap;
 import java.util.Map;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,49 +49,105 @@ public class MainActivity extends AppCompatActivity {
             }
         }, this.getApplication(), "uninstallKey");
 
-        Map<String, Object> defaultsMap = new HashMap<>();
-        defaultsMap.put("key","defaultValue");
-        EyuRemoteConfigHelper.initRemoteConfig(this, defaultsMap);
-        EyuRemoteConfigHelper.fetchRemoteConfig();
+//        Map<String, Object> defaultsMap = new HashMap<>();
+//        defaultsMap.put("key","defaultValue");
+//        EyuRemoteConfigHelper.initRemoteConfig(this, defaultsMap);
+//        EyuRemoteConfigHelper.fetchRemoteConfig();
         initAdConfig();
     }
 
     private void initView() {
-        //激励视频
-        findViewById(R.id.btnVideoAd).setOnClickListener(new View.OnClickListener() {
+//        //激励视频
+//        findViewById(R.id.btnVideoAd).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                EyuAdManager.getInstance().showRewardedVideoAd(MainActivity.this, "reward_ad");
+//            }
+//        });
+//
+//        //插屏
+//        findViewById(R.id.btnInterstitialAd).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (EyuAdManager.getInstance().isInterstitialAdLoaded("main_view_inter_ad")) {
+//                    EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "main_view_inter_ad");
+//                }
+//            }
+//        });
+//
+//        //banner，需要一个容器
+//        EyuAdManager.getInstance().showBannerAd(MainActivity.this, (ViewGroup) findViewById(R.id.ll_banner),
+//                "page_view_banner_ad");
+
+//        //原生广告
+//        /**
+//         * {
+//         *     "cacheGroup": "page_view_native_ad",
+//         *     "isEnabled": "true",
+//         *     "nativeAdLayout": "native_ad_in_page",
+//         *     "id": "page_view_native_ad",
+//         *     "desc": "页面原生广告"
+//         *   }
+//         *
+//         *   nativeAdLayout是原生广告的容器，value是native_ad_in_page，对应layout中 native_ad_in_page.xml
+//         */
+//        EyuAdManager.getInstance().showNativeAd(this, (ViewGroup) findViewById(R.id.rl_native), "page_view_native_ad");
+
+        findViewById(R.id.btnLoadRewardAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EyuAdManager.getInstance().loadRewardedVideoAd( "reward_ad");
+            }
+        });
+
+        findViewById(R.id.btnShowRewardAd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EyuAdManager.getInstance().showRewardedVideoAd(MainActivity.this, "reward_ad");
             }
         });
 
-        //插屏
-        findViewById(R.id.btnInterstitialAd).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btnLoadInterAd).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (EyuAdManager.getInstance().isInterstitialAdLoaded("main_view_inter_ad")) {
-                    EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "main_view_inter_ad");
-                }
+                EyuAdManager.getInstance().loadInterstitialAd( "main_view_inter_ad");
             }
         });
 
-        //banner，需要一个容器
-        EyuAdManager.getInstance().showBannerAd(MainActivity.this, (ViewGroup) findViewById(R.id.ll_banner),
-                "page_view_banner_ad");
+        findViewById(R.id.btnShowInterAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EyuAdManager.getInstance().showInterstitialAd(MainActivity.this, "main_view_inter_ad");
+            }
+        });
 
-        //原生广告
-        /**
-         * {
-         *     "cacheGroup": "page_view_native_ad",
-         *     "isEnabled": "true",
-         *     "nativeAdLayout": "native_ad_in_page",
-         *     "id": "page_view_native_ad",
-         *     "desc": "页面原生广告"
-         *   }
-         *
-         *   nativeAdLayout是原生广告的容器，value是native_ad_in_page，对应layout中 native_ad_in_page.xml
-         */
-        EyuAdManager.getInstance().showNativeAd(this, (ViewGroup) findViewById(R.id.rl_native), "page_view_native_ad");
+        findViewById(R.id.btnLoadNativeAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EyuAdManager.getInstance().loadNativeAd( "page_view_native_ad");
+            }
+        });
+
+        findViewById(R.id.btnShowNativeAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EyuAdManager.getInstance().showNativeAd(MainActivity.this, (ViewGroup)findViewById(R.id.nativeRoot), "page_view_native_ad");
+            }
+        });
+
+        findViewById(R.id.btnLoadInterRewardAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EyuAdManager.getInstance().loadInterRewardAd( "inter_reward_ad");
+            }
+        });
+
+        findViewById(R.id.btnShowInterRewardAd).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EyuAdManager.getInstance().showInterRewardAd(MainActivity.this, "inter_reward_ad");
+            }
+        });
     }
 
     private void initAdConfig() {
@@ -137,15 +187,15 @@ public class MainActivity extends AppCompatActivity {
          *   }
          */
         adConfig.setAdGroupConfigStr(SdkHelper.readRawString(this, R.raw.ad_cache_setting));
-        adConfig.setAdmobClientId("");
-        adConfig.setUnityClientId("");
-        adConfig.setVungleClientId("");
+//        adConfig.setAdmobClientId("");
+//        adConfig.setUnityClientId("");
+//        adConfig.setVungleClientId("");
 //        adConfig.setTtClientId("5010560");
 //        adConfig.setMaxTryLoadRewardAd(1);
 //        adConfig.setMaxTryLoadNativeAd(1);
 //        adConfig.setMaxTryLoadInterstitialAd(1);
-        adConfig.setTestParams(TestParams.builder(true)
-                .addAdmobTestDevice(""));
+//        adConfig.setTestParams(TestParams.builder(true)
+//                .addAdmobTestDevice(""));
         adConfig.setFbNativeAdClickAreaControl(true);
         adConfig.setReportEvent(true);
         EyuAdManager.getInstance().config(MainActivity.this, adConfig, new EyuAdsListener() {

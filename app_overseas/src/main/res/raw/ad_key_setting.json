@@ -7,5 +7,9 @@
 {"id":"adcp_js","key":"ca-app-pub-3940256099942544/1033173712","network":"admob","testKey":"ca-app-pub-3940256099942544/1033173712"},
 {"id":"adjl_jsg","key":"ca-app-pub-3940256099942544/5224354917","network":"admob","testKey":"ca-app-pub-3940256099942544/5224354917"},
 {"id":"adys_sy","key":"ca-app-pub-3940256099942544/2247696110","network":"admob","testKey":"ca-app-pub-3940256099942544/2247696110"},
-  {"id":"adys_ba","key":"ca-app-pub-3940256099942544/6300978111","network":"admob","testKey":"ca-app-pub-3940256099942544/6300978111"}
-]
+  {"id":"adys_ba","key":"ca-app-pub-3940256099942544/6300978111","network":"admob","testKey":"ca-app-pub-3940256099942544/6300978111"},
+  {
+    "id":"fb_inter_reward_ad",
+    "key":"129685257795593_577778899652891",
+    "network":"facebook"
+  }]

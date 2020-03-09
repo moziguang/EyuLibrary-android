@@ -28,5 +28,11 @@
     "isAutoLoad": "true",
     "id": "page_view_banner_ad",
     "type": "bannerAd"
+  },
+  {
+    "keys": "[\"fb_inter_reward_ad\"]",
+    "type": "interRewardAd",
+    "id": "inter_reward_ad_group",
+    "isAutoLoad": "false"
   }
 ]

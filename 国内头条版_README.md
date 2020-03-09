@@ -1,3 +1,13 @@
+### 迁移到 AndroidX（特别需要注意原生广告）
+重构命令使用两个标记。默认情况下，这两个标记在 gradle.properties 文件中都设为 true：
+
+android.useAndroidX=true
+Android 插件会使用对应的 AndroidX 库而非支持库。
+android.enableJetifier=true
+类库映射：
+https://developer.android.com/jetpack/androidx/migrate/artifact-mappings
+类的对应关系请参考：
+https://developer.android.com/jetpack/androidx/migrate/class-mappings
 
 ### 1.项目的build.gradle 添加以下内容
 ```gradle
@@ -31,9 +41,11 @@ allprojects {
 ...
 dependencies {
     ...
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.eyu:eyulibrary-ch:1.2.19'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.eyu:eyulibrary-ch:1.3.3'
     ...
 }
 ...
@@ -186,6 +198,32 @@ https://developer.android.com/studio/build/multidex
         EyuAdManager.getInstance().config(this, adConfig, this);
     }
 ```
+#### 生命周期处理
+```java
+   Activity中添加
+    
+        @Override
+    protected void onResume() {
+        super.onResume();
+        SdkHelper.onResume(this);
+        EyuAdManager.getInstance().resume(this);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SdkHelper.onPause(this);
+        EyuAdManager.getInstance().pause(this);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EyuAdManager.getInstance().destroyCurrent(this);
+    }
+```
 ### 8.添加权限
 ```xml
 //必须要有的权限
@@ -207,7 +245,7 @@ https://developer.android.com/studio/build/multidex
 http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8D%E7%BD%AE
 如果您的应用需要适配Anroid7.0以及8.0，请在AndroidManifest中添加如下代码：
 <provider
-	 android:name="android.support.v4.content.FileProvider"
+	 android:name="androidx.core.content.FileProvider"
 	 android:authorities="${applicationId}.fileprovider"
 	 android:exported="false"
 	 android:grantUriPermissions="true">

@@ -41,3 +41,6 @@
 
 #eyu
 -keep class com.eyu.common.**{*;}
+
+-keep class androidx.multidex.MultiDexApplication
+
