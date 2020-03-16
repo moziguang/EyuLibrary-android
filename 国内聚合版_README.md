@@ -257,10 +257,10 @@ http://ad.toutiao.com/union/media/support/custom17#1.2%20AndroidManifest%E9%85%8
 	     android:resource="@xml/file_paths" />
 </provider>  
 <provider
-	 android:name="com.bytedance.sdk.openadsdk.service.TTDownloadProvider"
-    android:authorities="${applicationId}.union_adsdk_tt"
-    android:exported="false"
-</provider>  
+    android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+    android:authorities="${applicationId}.TTMultiProvider"
+    android:exported="false" />
+  
 在res/xml目录下，新建一个xml文件file_paths，在该文件中添加如下代码：
 <?xml version="1.0" encoding="utf-8"?>  
 <paths xmlns:android="http://schemas.android.com/apk/res/android">  
