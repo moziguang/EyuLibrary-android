@@ -337,18 +337,7 @@ android:value="@string/facebook_app_id" />
         android:name="com.facebook.ads.AudienceNetworkActivity"
         android:hardwareAccelerated="true"
         android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity
-        android:name="com.facebook.ads.internal.ipc.RemoteANActivity"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-        android:exported="false"
-        android:process=":adnw" />
-        <service
-        android:name="com.facebook.ads.internal.ipc.AdsProcessPriorityService"
-        android:exported="false" />
-        <service
-        android:name="com.facebook.ads.internal.ipc.AdsMessengerService"
-        android:exported="false"
-        android:process=":adnw" />
+        
 ```
 
 #### 添加权限
