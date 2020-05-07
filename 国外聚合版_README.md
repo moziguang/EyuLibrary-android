@@ -348,13 +348,8 @@ android:value="@string/facebook_app_id" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
 <uses-permission android:name="android.permission.GET_TASKS"/>
-```
-//最好能提供的权限
-```xml
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
 
