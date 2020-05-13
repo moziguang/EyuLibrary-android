@@ -45,7 +45,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.eyu:eyulibrary-tt-mtg-gdt:1.1.7'
+    implementation 'com.eyu:eyulibrary-tt-mtg-gdt:1.1.8'
     ...
 }
 ```

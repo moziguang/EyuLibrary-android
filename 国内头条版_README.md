@@ -45,7 +45,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.eyu:eyulibrary-ch:1.3.4'
+    implementation 'com.eyu:eyulibrary-ch:1.3.5'
     ...
 }
 ...
